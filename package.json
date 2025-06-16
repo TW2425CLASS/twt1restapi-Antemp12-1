@@ -9,5 +9,9 @@
     "dependencies": {
         "json-server": "^0.17.0",
         "mongodb": "^6.17.0"
+    },
+    "devDependencies": {
+        "@types/node": "^24.0.3",
+        "typescript": "^5.8.3"
     }
 }
