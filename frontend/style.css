@@ -1,1 +1,255 @@
-/* Estilos para a página */
+/* Modern, clean look for the whole page */
+body {
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    background: #f4f6fb;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #2a5298;
+    margin-top: 32px;
+    font-size: 2.4em;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+#content {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 6px 32px rgba(42,82,152,0.10);
+    padding: 36px 36px 28px 36px;
+}
+
+section {
+    margin-bottom: 36px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e0e4ea;
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+h2 {
+    color: #2a5298;
+    margin-bottom: 16px;
+    font-size: 1.3em;
+    font-weight: 700;
+    border-left: 4px solid #2a5298;
+    padding-left: 10px;
+    letter-spacing: 0.5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin: 12px 0;
+    padding: 14px 22px;
+    border: 1px solid #e0e4ea;
+    border-radius: 12px;
+    background: #f8fafc;
+    transition: box-shadow 0.2s, background 0.2s;
+    font-size: 1.08em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+li:hover {
+    box-shadow: 0 2px 12px rgba(42,82,152,0.10);
+    background: #eaf1fb;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+form input {
+    flex: 1 1 120px;
+    padding: 10px 12px;
+    border: 1px solid #bfc9d9;
+    border-radius: 8px;
+    font-size: 1em;
+    background: #f8fafc;
+    transition: border 0.2s;
+}
+
+form input:focus {
+    border: 1.5px solid #2a5298;
+    outline: none;
+    background: #fff;
+}
+
+form select {
+    flex: 1 1 120px;
+    padding: 10px 12px;
+    border: 1px solid #bfc9d9;
+    border-radius: 8px;
+    font-size: 1em;
+    background: #f8fafc;
+    transition: border 0.2s;
+    color: #222;
+    height: 40px;
+}
+
+form select:focus {
+    border: 1.5px solid #2a5298;
+    outline: none;
+    background: #fff;
+}
+
+form button[type="submit"] {
+    padding: 10px 24px;
+    background: linear-gradient(90deg, #2a5298 0%, #1e3c72 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(42,82,152,0.08);
+}
+
+form button[type="submit"]:hover {
+    background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.list-item-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 8px;
+}
+
+.actions {
+    display: flex;
+    gap: 16px;
+}
+
+.edit-btn, .delete-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+    box-shadow: 0 2px 8px rgba(42,82,152,0.08);
+    outline: none;
+}
+
+.edit-btn {
+    background: linear-gradient(90deg, #2a5298 0%, #1e3c72 100%);
+    color: #fff;
+}
+
+.edit-btn:hover {
+    background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+    transform: translateY(-2px) scale(1.05);
+}
+
+.delete-btn {
+    background: linear-gradient(90deg, #e74c3c 0%, #c0392b 100%);
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background: linear-gradient(90deg, #c0392b 0%, #e74c3c 100%);
+    transform: translateY(-2px) scale(1.05);
+}
+
+.actions svg {
+    margin-right: 8px;
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+}
+
+/* Modal overlay */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.25);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Show modal when display is block */
+.modal[style*="block"] {
+    display: flex !important;
+}
+
+/* Modal content box */
+.modal-content {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 28px 24px 28px;
+    box-shadow: 0 8px 32px rgba(42,82,152,0.18);
+    min-width: 320px;
+    max-width: 95vw;
+    max-height: 90vh;
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 12px; right: 18px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.close:hover {
+    color: #2a5298;
+}
+
+#modal-fields select {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 700px) {
+    #content {
+        padding: 12px 2vw;
+    }
+    form {
+        flex-direction: column;
+        gap: 10px;
+    }
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}

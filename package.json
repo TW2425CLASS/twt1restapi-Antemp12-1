@@ -1,0 +1,13 @@
+{
+    "name": "my-awesome-project",
+    "version": "1.0.0",
+    "description": "A project that does awesome things",
+    "scripts": {
+        "start-outro": "json-server --watch ./mock-data/bd.json --port 3002",
+        "start-real": "node backend/server.js"
+    },
+    "dependencies": {
+        "json-server": "^0.17.0",
+        "mongodb": "^6.17.0"
+    }
+}

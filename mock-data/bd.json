@@ -1,16 +1,40 @@
-
 {
-  "alunos": [
+  "Alunos": [
     {
-      "nome": "Joana",
-      "apelido": "Silva",
-      "curso": 1,
+      "nome": "André",
+      "apelido": "Jets",
+      "cursoID": 104,
+      "anoCurricular": 1,
+      "id": "3"
+    },
+    {
+      "nome": "TigerShark",
+      "apelido": "lpl",
+      "cursoID": 101,
+      "anoCurricular": 3,
+      "id": "36a1"
+    },
+    {
+      "nome": "Antemp",
+      "apelido": "fdad",
+      "cursoID": 122,
       "anoCurricular": 2,
-      "idade" : 21
+      "id": "g0a_h2m"
     }
   ],
-  "cursos": [
-    { "id" : 1, "nomeDoCurso": "Engenharia da Computação Gráfica e Multimédia" },
-    { "id" : 2, "nomeDoCurso": "Engenharia de Redes e Sistemas de Computadores" }
+  "Cursos": [
+    {
+      "nome": "hadha",
+      "id": "103"
+    },
+    {
+      "nome": "Tw",
+      "id": "102"
+    },
+    {
+      "nome": "ola",
+      "descricao": "12",
+      "id": "p4jdNXL"
+    }
   ]
 }

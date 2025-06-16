@@ -1,1 +1,66 @@
-<!-- Página CRUD de Alunos -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos e Cursos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Gestão de Alunos e Cursos</h1>
+    <div id="content">
+        <section>
+            <h2>Lista de Alunos</h2>
+            <ul id="alunos-list"></ul>
+        </section>
+        <section>
+            <h2>Lista de Cursos</h2>
+            <ul id="cursos-list"></ul>
+        </section>
+        <section>
+            <h2>Adicionar Aluno</h2>
+            <form id="add-aluno-form">
+                <input type="text" id="nome" placeholder="Nome" required>
+                <input type="text" id="apelido" placeholder="Apelido" required>
+                <select id="cursoId" required>
+                    <option value="">Selecione um curso</option>
+                </select>
+                <input type="number" id="anoCurricular" placeholder="Ano Curricular" required>
+                <button type="submit">Adicionar</button>
+            </form>
+            <form id="edit-aluno-form" style="display:none; margin-top:10px;">
+                <input type="hidden" id="edit-id">
+                <input type="text" id="edit-nome" placeholder="Nome" required>
+                <input type="text" id="edit-apelido" placeholder="Apelido" required>
+                <input type="number" id="edit-cursoId" placeholder="Curso ID" required>
+                <input type="number" id="edit-anoCurricular" placeholder="Ano Curricular" required>
+                <button type="submit">Salvar</button>
+                <button type="button" id="cancel-edit">Cancelar</button>
+            </form>
+        </section>
+        <section>
+    <h2>Adicionar Curso</h2>
+    <form id="add-curso-form">
+        <input type="text" id="curso-nome" placeholder="Nome do Curso" required>
+        <input type="text" id="curso-descricao" placeholder="Descrição" required>
+        <button type="submit">Adicionar Curso</button>
+    </form>
+</section>
+    </div>
+    
+
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <h2 id="modal-title">Editar</h2>
+            <form id="modal-edit-form">
+                <div id="modal-fields"></div>
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
