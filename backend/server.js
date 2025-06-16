@@ -12,14 +12,8 @@ const DB_NAME = 'alunosCurso';
 
 let db, alunosCollection, cursosCollection;
 
-const client = new MongoClient(MongoDB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  tls: true
-});
-
-client.connect()
-  .then(() => {
+MongoClient.connect(MongoDB_URI)
+  .then(client => {
     db = client.db(DB_NAME);
     alunosCollection = db.collection('alunos');
     cursosCollection = db.collection('cursos');
@@ -29,7 +23,6 @@ client.connect()
     console.error('❌ Erro ao conectar ao MongoDB:', err);
     process.exit(1);
   });
-
 
 /* --- Endpoints de Alunos --- */
 app.get('/alunos', async (req, res) => {
