@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3001";
+const API_URL = "https://twt1restapi-antemp12-1.onrender.com";
 
 // Guarda os cursos para usar em vários sítios
 let cursosGlobais = [];

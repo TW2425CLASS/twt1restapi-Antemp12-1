@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const MongoDB_URI = 'mongodb+srv://Antemp:1234@tecweb.o7qlkzt.mongodb.net/?retryWrites=true&w=majority&appName=TecWeb';
+const MongoDB_URI = 'mongodb+srv://Antemp:1234@tecweb.o7qlkzt.mongodb.net/alunosCurso?retryWrites=true&w=majority&appName=TecWeb';
 const DB_NAME = 'alunosCurso';
 
 let db, alunosCollection, cursosCollection;
