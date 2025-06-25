@@ -1,152 +1,117 @@
-# Trabalho Prático #1
+# Gestão de Alunos e Cursos
 
-## Consumo e Implementação de APIs RESTful
-
-### Objetivo Geral
-
-Consolidar os conhecimentos em desenvolvimento web com foco na criação, consumo e implementação de APIs RESTful utilizando tecnologias do ecossistema JavaScript:
-
-- Node.js + Express
-- MongoDB / MongoDB Atlas
-- JSON-Server
-- Fetch API
-- Swagger (opcional)
-
-O projeto simula o ciclo completo de desenvolvimento de uma aplicação web com front-end e back-end separados, incluindo testes e deploy.
+**Autor:** Tomás Franco Amorim 
+**Número:** 31371
 
 ---
 
-## Partes do Trabalho
+## Publicação
 
-### Parte 1: Estruturação da Base de Dados (JSON)
-
-- Criar um ficheiro `bd.json` com:
-
-  - Lista de alunos: `nome`, `apelido`, `curso`, `anoCurricular`
-  - Lista de cursos: `nomeDoCurso`
-
-- 📁 Diretório sugerido: `/mock-data/`
-- 📄 Entregável: `bd.json`
+- **Frontend:** [https://vercel.com/antemp12s-projects/twt1restapi-antemp12-1]
+- **Backend:** [https://twt1restapi-antemp12-1.onrender.com]
 
 ---
 
-### Parte 2: API Simulada com JSON-Server + Testes
+## Instalação e Execução
 
-- Configurar e iniciar `json-server` com `bd.json`
-- Testar os endpoints com Postman (CRUD de alunos, leitura de cursos)
-- Exportar a coleção de testes
+### Pré-requisitos
+- Node.js (versão recomendada LTS)
+- npm
+- Conta MongoDB Atlas (para backend real)
 
-- 📁 Diretório sugerido: `/mock-server/`
-- 📄 Entregáveis:
-  - Código de configuração (`package.json`, script json-server)
-  - Coleção `.json` do Postman em `/tests/`
+### Backend
 
----
+1. Entre na pasta do backend:
+   ```bash
+   cd backend
+   ```
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Configure a string de conexão do MongoDB Atlas em `server.js`.
+4. Inicie o servidor:
+   ```bash
+   node server.js
+   ```
+   O backend ficará disponível em `http://localhost:3001`.
 
-### Parte 3: Interface Web (CRUD de Alunos)
+### Frontend
 
-- Desenvolver uma página web funcional para gerir alunos:
-  - Ver alunos
-  - Adicionar aluno
-  - Editar aluno
-  - Apagar aluno
-- Utilizar `Fetch API` e programação assíncrona
-
-- 📁 Diretório sugerido: `/frontend/`
-- 📄 Entregável: Página funcional conectada à API simulada
-
----
-
-### Parte 4: API RESTful real (Node.js + Express + MongoDB Atlas)
-
-- Migrar os dados para o MongoDB Atlas
-- Implementar a API Express com endpoints equivalentes ao JSON-server
-- Manter a estrutura RESTful
-- Sugestão : usar mongoose a abordagem MVC (bónus 5%)
-
-- 📁 Diretório sugerido: `/backend/`
-- 📄 Entregável: Código funcional da API com instruções
+1. Entre na pasta do frontend:
+   ```bash
+   cd frontend
+   ```
+2. Abra o arquivo `index.html` no navegador  
+   **ou** use uma extensão como Live Server do VS Code.
 
 ---
 
-### Parte 5: Deploy da Aplicação
+## Descrição da Base de Dados
 
-- Fazer deploy do front-end no [Vercel](https://vercel.com)
-- (Opcional) Fazer deploy da API no [Render](https://render.com)
-- Adaptar o front-end para consumir a nova API
-
-📄 Incluir no `README.md`:
-
-- URL pública do front-end
-- URL da API real
-- 📄 Entregável: Links funcionais no repositório
-
----
-
-### Parte 6 (Bonificação): Documentação da API
-
-- Utilizar Swagger para documentar os endpoints da API
-- Incluir rota `/api-docs` na aplicação
-
-- 📁 Diretório sugerido: `/backend/docs/`
-- 📄 Entregável: Swagger funcional e acessível
+- **MongoDB Atlas** com duas coleções:
+  - **alunos**:  
+    - `nome` (String)  
+    - `apelido` (String)  
+    - `cursoID` (Number)  
+    - `anoCurricular` (Number)
+  - **cursos**:  
+    - `nome` (String)  
+    - `descricao` (String)
 
 ---
 
-## Organização do Projeto
+## Descrição da API (Rotas)
 
-```text
-projeto-raiz/
-│
-├── /frontend/ ← Interface web (HTML/CSS/JS)
-├── /backend/ ← API RESTful com Node.js + MongoDB
-├── /mock-server/ ← JSON-server configurado
-├── /mock-data/ ← Base de dados JSON original
-├── /tests/ ← Coleção de testes Postman
-├── README.md ← Instruções, links e notas
-└── .gitignore, etc.
-```
+### Alunos
 
----
+- `GET    /alunos`  
+  Lista todos os alunos
 
-## Sugestão de Branches
+- `POST   /alunos`  
+  Cria um novo aluno  
+  **Body:** `{ nome, apelido, cursoID, anoCurricular }`
 
-| Branch     | Descrição                        |
-| ---------- | -------------------------------- |
-| `main`     | Versão estável e final           |
-| `dev`      | Desenvolvimento geral            |
-| `frontend` | Interface e interação do usuário |
-| `api`      | API real (Node + MongoDB)        |
-| `deploy`   | Adaptações para Vercel/Render    |
+- `PUT    /alunos/:id`  
+  Atualiza um aluno existente  
+  **Body:** `{ nome, apelido, cursoID, anoCurricular }`
 
----
+- `DELETE /alunos/:id`  
+  Remove um aluno
 
-## Critérios de Avaliação
+### Cursos
 
-| Critério                         | Peso |
-| -------------------------------- | ---- |
-| Base de dados JSON correta       | 10%  |
-| API simulada e testada (Postman) | 10%  |
-| Funcionalidade do front-end      | 30%  |
-| Qualidade da API real (Node.js)  | 30%  |
-| Integração front-end/backend     | 10%  |
-| Deploy funcional                 | 10%  |
-| Bonificação (MVC)                | +5%  |
-| Bonificação (Swagger)            | +5%  |
+- `GET    /cursos`  
+  Lista todos os cursos
+
+- `POST   /cursos`  
+  Cria um novo curso  
+  **Body:** `{ nome, descricao }`
+
+- `PUT    /cursos/:id`  
+  Atualiza um curso existente  
+  **Body:** `{ nome, descricao }`
+
+- `DELETE /cursos/:id`  
+  Remove um curso
 
 ---
 
-## Entrega
+## Descrição do Frontend
 
-- Entrega via **GitHub Classroom**.
-- O repositório deve conter:
-  - Código funcional
-  - README.md com instruções claras
-  - Links de deploy (front e opcionalmente back)
+- Interface web responsiva para gestão de alunos e cursos.
+- Permite adicionar, editar e remover alunos e cursos.
+- Os dados são consumidos da API RESTful.
+- Modal para edição de alunos/cursos.
+- Dropdown para seleção de curso ao criar/editar aluno.
+- Visual moderno e intuitivo.
 
 ---
 
-### Repositório Base
+## Outros Conteúdos Relevantes
 
-Usa o repositório template inicial fornecido no GitHub Classroom.
-# TWT1RESTAPI
+- Projeto desenvolvido para a unidade curricular de Tecnologias Web.
+- Estrutura RESTful e separação clara entre frontend e backend.
+- Código comentado e organizado para fácil manutenção.
+- [Opcional] Testes automáticos incluídos na pasta `/tests`.
+
